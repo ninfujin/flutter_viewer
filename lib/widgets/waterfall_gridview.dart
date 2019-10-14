@@ -15,7 +15,11 @@ class WaterFallGridView extends StatefulWidget {
   _WaterFallGridViewState createState() => _WaterFallGridViewState();
 }
 
-class _WaterFallGridViewState extends State<WaterFallGridView> {
+class _WaterFallGridViewState extends State<WaterFallGridView> with AutomaticKeepAliveClientMixin {
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 
   @override
   void dispose() {
@@ -25,6 +29,7 @@ class _WaterFallGridViewState extends State<WaterFallGridView> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     if(null == widget?.models || 0 == widget?.models?.length) {
       return Center(child: Text('Loading...'));
     }

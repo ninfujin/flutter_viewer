@@ -8,6 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: '快手',
       home: HomePage(),
       theme: GlobalConfig.defaultTheme,
       debugShowCheckedModeBanner: false
