@@ -24,7 +24,7 @@ class HttpHelper {
 
   static Future startHttp(String url, {RequestType type, Map<String, dynamic> params, FormData data, Options options}) async {
 
-    print('请求地址: $url, 类型: $type, 参数: $params');
+    print('=============== 请求地址: $url, 类型: $type, 参数: $params');
 
     Response response;
     Dio dio = Dio()

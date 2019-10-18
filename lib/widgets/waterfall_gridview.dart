@@ -18,7 +18,6 @@ class WaterFallGridView extends StatefulWidget {
 class _WaterFallGridViewState extends State<WaterFallGridView> with AutomaticKeepAliveClientMixin {
 
   @override
-  // TODO: implement wantKeepAlive
   bool get wantKeepAlive => true;
 
   @override

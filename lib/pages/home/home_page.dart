@@ -15,7 +15,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   TabController _controller;
   List<TabConfigModel> _tabBarModels;
   List<RecommendPage> _pages;
-  int _tabIndex;
 
   @override
   void initState() {

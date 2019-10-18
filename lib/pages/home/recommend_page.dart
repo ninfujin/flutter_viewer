@@ -3,6 +3,7 @@ import 'package:flutter_viewer/models/travel_model.dart';
 import 'package:flutter_viewer/network/request_helper.dart';
 import 'package:flutter_viewer/widgets/loading_container.dart';
 import 'package:flutter_viewer/widgets/waterfall_gridview.dart';
+import 'dart:async';
 
 const String TRAVEL_URL =
     'https://m.ctrip.com/restapi/soa2/16189/json/searchTripShootListForHomePageV2?_fxpcqlniredt=09031014111431397988&__gw_appid=99999999&__gw_ver=1.0&__gw_from=10650013707&__gw_platform=H5';
@@ -20,20 +21,42 @@ class _RecommendPageState extends State<RecommendPage> {
   List<Article> _articleModels;
   int _pageIndex;
   bool _isLoading;
+  bool _canContinueLoad;
+  Timer _timer;
 
   @override
   void initState() {
     super.initState();
     _pageIndex = 0;
     _isLoading = true;
+    _canContinueLoad = true;
     _articleModels = [];
     _scrollController = ScrollController();
     _scrollController.addListener(() {
-      if((_scrollController.position.pixels + 20.0) >= _scrollController.position.maxScrollExtent) {
-        _startRequest();
+      if((_scrollController.position.pixels + 160.0) >= _scrollController.position.maxScrollExtent) {
+         if(!_isLoading && _canContinueLoad) {
+           _canContinueLoad = false;
+           _startRequest();
+           _timer = _startTimeout(1000);
+         }
       }
     });
     _startRequest();
+  }
+
+  @override
+  void dispose() {
+    if(null != _timer) {
+      _timer.cancel();
+    }
+    super.dispose();
+  }
+
+  _startTimeout([int milliseconds]) {
+    if(null  != _timer) _timer.cancel();
+    return Timer(Duration(seconds: 1), (){
+      _canContinueLoad = true;
+    });
   }
 
   @override

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class GlobalConfig {
 
-  static const String APP_NAME = '旅行';
+  static const String APP_NAME = '快手';
 
   static ThemeData iOSTheme = ThemeData(
     primarySwatch: Colors.orange,
