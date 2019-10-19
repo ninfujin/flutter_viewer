@@ -3,7 +3,7 @@ import 'package:flutter_viewer/commom/scale_screen.dart';
 import 'package:flutter_viewer/commom/tabbar_configer.dart';
 import 'package:flutter_viewer/commom/tabbar_config_model.dart';
 import 'package:flutter_viewer/commom/global.dart';
-import 'package:flutter_viewer/pages/home/recommend_page.dart';
+import 'package:flutter_viewer/pages/home/waterfall_gridview_controller.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -14,7 +14,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   TabController _controller;
   List<TabConfigModel> _tabBarModels;
-  List<RecommendPage> _pages;
+  List<WaterfallGridViewController> _pages;
+  int _tabIndex;
 
   @override
   void initState() {
@@ -22,9 +23,9 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
     _tabBarModels = TabBarConfiger.generateTabConfigModels;
     _controller = TabController(vsync: this, length: _tabBarModels.length, initialIndex: 1);
     _pages = []
-    ..add(RecommendPage(0))
-    ..add(RecommendPage(1))
-    ..add(RecommendPage(2));
+    ..add(WaterfallGridViewController(0))
+    ..add(WaterfallGridViewController(1))
+    ..add(WaterfallGridViewController(2));
   }
 
   @override
@@ -41,7 +42,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
       body: TabBarView(
         controller: _controller,
         children: _tabBarModels.map((model) {
-          return RecommendPage(_tabBarModels.indexOf(model));
+          return WaterfallGridViewController(_tabBarModels.indexOf(model));
         }).toList(),
       ),
     );
