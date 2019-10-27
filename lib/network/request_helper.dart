@@ -3,6 +3,9 @@ import 'package:http/http.dart' as http;
 
 import 'package:flutter_viewer/models/travel_model.dart';
 
+const String TRAVEL_URL =
+    'https://m.ctrip.com/restapi/soa2/16189/json/searchTripShootListForHomePageV2?_fxpcqlniredt=09031014111431397988&__gw_appid=99999999&__gw_ver=1.0&__gw_from=10650013707&__gw_platform=H5';
+
 // 该类目前考虑用于请求数据并解析，是否在此处序列化暂定，如果序列化的话，该类承担太多职责，view和该类都要耦合模型
 // 但是在该类进行序列化，外部调用简单，实现该类的最大作用
 

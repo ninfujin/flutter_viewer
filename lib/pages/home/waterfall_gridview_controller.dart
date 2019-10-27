@@ -6,9 +6,6 @@ import 'package:flutter_viewer/widgets/loading_container.dart';
 import 'package:flutter_viewer/widgets/waterfall_gridview.dart';
 import 'dart:async';
 
-const String TRAVEL_URL =
-    'https://m.ctrip.com/restapi/soa2/16189/json/searchTripShootListForHomePageV2?_fxpcqlniredt=09031014111431397988&__gw_appid=99999999&__gw_ver=1.0&__gw_from=10650013707&__gw_platform=H5';
-
 class WaterfallGridViewController extends StatefulWidget {
   final int type;
   WaterfallGridViewController(this.type);
@@ -35,11 +32,11 @@ class _WaterfallGridViewControllerState extends State<WaterfallGridViewControlle
     _scrollController = ScrollController();
     _scrollController.addListener(() {
       if((_scrollController.position.pixels + 160.0) >= _scrollController.position.maxScrollExtent) {
-         if(!_isLoading && _canContinueLoad) {
-           _canContinueLoad = false;
-           _startRequest();
-           _timer = _startTimeout(1000);
-         }
+        if(!_isLoading && _canContinueLoad) {
+          _canContinueLoad = false;
+          _startRequest();
+          _timer = _startTimeout(1000);
+        }
       }
     });
     _startRequest();
