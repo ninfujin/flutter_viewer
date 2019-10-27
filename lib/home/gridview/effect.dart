@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'package:flutter_viewer/models/travel_model.dart';
@@ -20,9 +22,12 @@ Effect<WaterFallGridViewState> buildEffect() {
 void _onInitState(Action action, Context<WaterFallGridViewState> ctx) {
   ctx.state.scrollController.addListener(() {
     if((ctx.state.scrollController.position.pixels + 160.0) >= ctx.state.scrollController.position.maxScrollExtent) {
-      if(!ctx.state.isLoading && ctx.state.canContinueLoad) {
+      if(!ctx.state.isLoading && ctx.state.isThrottling) {
         ctx.dispatch(WaterFallGridViewActionCreator.onStartRequest());
-        ctx.dispatch(WaterFallGridViewActionCreator.onRefreshTimer());
+        ctx.dispatch(WaterFallGridViewActionCreator.onRefreshTimer(isThrottling: false));
+        ctx.state.timer = Timer(Duration(seconds: 1), () {
+          ctx.dispatch(WaterFallGridViewActionCreator.onRefreshTimer(isThrottling: true));
+        });
       }
     }
   });

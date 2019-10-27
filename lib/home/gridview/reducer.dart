@@ -16,11 +16,8 @@ Reducer<WaterFallGridViewState> buildReducer() {
 
 WaterFallGridViewState _refreshTimer(WaterFallGridViewState state, Action action) {
   final WaterFallGridViewState newState = state.clone();
-  newState.canContinueLoad = false;
   if(null  != newState.timer) newState.timer.cancel();
-  newState.timer = Timer(Duration(seconds: 1), (){
-    newState.canContinueLoad = true;
-  });
+  newState.isThrottling = action.payload;
   return newState;
 }
 

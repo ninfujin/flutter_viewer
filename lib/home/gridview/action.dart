@@ -8,7 +8,7 @@ enum WaterFallGridViewAction {
   startRequest,
   refreshTimer,
   tapGridViewItem,
-  scrollToTop,
+  scrollToTop
 }
 
 class WaterFallGridViewActionCreator {
@@ -28,8 +28,8 @@ class WaterFallGridViewActionCreator {
     return Action(WaterFallGridViewAction.startRequest, payload: isLoadMore);
   }
 
-  static Action onRefreshTimer() {
-    return const Action(WaterFallGridViewAction.refreshTimer);
+  static Action onRefreshTimer({bool isThrottling = true}) {
+    return Action(WaterFallGridViewAction.refreshTimer, payload: isThrottling);
   }
 
   static Action onTapGridViewItem(int idx) {

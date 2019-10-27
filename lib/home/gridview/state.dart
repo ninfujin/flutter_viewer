@@ -10,7 +10,7 @@ class WaterFallGridViewState implements Cloneable<WaterFallGridViewState> {
   List<Article> articleModels;
   int pageIndex;
   bool isLoading;
-  bool canContinueLoad;
+  bool isThrottling;
   Timer timer;
   int type;
 
@@ -21,7 +21,7 @@ class WaterFallGridViewState implements Cloneable<WaterFallGridViewState> {
       ..articleModels = articleModels
       ..pageIndex = pageIndex
       ..isLoading = isLoading
-      ..canContinueLoad = canContinueLoad
+      ..isThrottling = isThrottling
       ..timer = timer
       ..type = type;
   }
@@ -34,6 +34,6 @@ WaterFallGridViewState initState(Map<String, dynamic> args) {
   instanceState.type = args['type'];
   instanceState.articleModels = [];
   instanceState.scrollController = ScrollController();
-  instanceState.canContinueLoad = true;
+  instanceState.isThrottling = true;
   return instanceState;
 }

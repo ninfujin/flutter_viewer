@@ -10,6 +10,7 @@ import 'state.dart';
 
 Widget buildView(WaterFallGridViewState state, Dispatch dispatch, ViewService viewService) {
   return RefreshIndicator(
+      color: Colors.orange,
       onRefresh: () async{
         dispatch(WaterFallGridViewActionCreator.onStartRequest(isLoadMore: false));
         return null;

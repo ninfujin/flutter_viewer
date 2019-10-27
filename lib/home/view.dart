@@ -4,7 +4,7 @@ import 'package:flutter_viewer/commom/global.dart';
 import 'package:flutter_viewer/commom/page_route.dart';
 import 'package:flutter_viewer/commom/scale_screen.dart';
 import 'package:flutter_viewer/commom/tabbar_configer.dart';
-import 'package:flutter_viewer/home/gridview/keep_alive_wraper.dart';
+import 'package:flutter_viewer/widgets/keep_alive_wraper.dart';
 import 'state.dart';
 
 Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
