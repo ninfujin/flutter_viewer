@@ -11,38 +11,18 @@ class HomeState implements Cloneable<HomeState> {
   TabController controller;
   List<TabConfigModel> tabBarModels;
   int tabIndex;
-  ScrollController scrollController;
-  List<Article> articleModels;
-  int pageIndex;
-  bool isLoading;
-  bool canContinueLoad;
-  Timer timer;
-  int type;
 
   @override
   HomeState clone() {
     return HomeState()
     ..controller = controller
     ..tabBarModels = tabBarModels
-    ..tabIndex = tabIndex
-    ..scrollController = scrollController
-    ..articleModels = articleModels
-    ..pageIndex = pageIndex
-    ..isLoading = isLoading
-    ..canContinueLoad = canContinueLoad
-    ..timer = timer
-    ..type = type;
+    ..tabIndex = tabIndex;
   }
 }
 
 HomeState initState(Map<String, dynamic> args) {
   HomeState instanceState = HomeState();
   instanceState.tabBarModels = TabBarConfiger.generateTabConfigModels;
-  instanceState.pageIndex = 0;
-  instanceState.isLoading = true;
-  instanceState.type = 1;
-  instanceState.articleModels = [];
-  instanceState.scrollController = ScrollController();
-  instanceState.canContinueLoad = false;
   return instanceState;
 }

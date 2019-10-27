@@ -24,7 +24,7 @@ class LoadingContainer extends StatelessWidget {
 
   Widget get _loadingView {
     return Center(
-      child: CircularProgressIndicator(),
+      child: Text('Loading...'),
     );
   }
 }
