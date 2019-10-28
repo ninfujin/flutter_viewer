@@ -1,6 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
-import 'package:flutter_viewer/home/tabcontroller_stf.dart';
+import 'tabcontroller_stf.dart';
 import 'state.dart';
 
 Effect<HomeState> buildEffect() {

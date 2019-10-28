@@ -4,9 +4,9 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'package:flutter_viewer/models/travel_model.dart';
 import 'package:flutter_viewer/network/request_helper.dart';
-import 'package:flutter_viewer/pages/home/detail_page.dart';
 import 'action.dart';
 import 'state.dart';
+import '../../../commom/page_route.dart';
 
 Effect<WaterFallGridViewState> buildEffect() {
   return combineEffects(<Object, Effect<WaterFallGridViewState>>{
@@ -66,7 +66,11 @@ void _onDispose(Action action, Context<WaterFallGridViewState> ctx) {
 void _onTapGridViewItem(Action action, Context<WaterFallGridViewState> ctx) {
   Navigator.of(ctx.context).push(new MaterialPageRoute<Null>(
       builder: (BuildContext context) {
-        return DetailVideoPage('HeroAnimation${ctx.state.type}_Route_Detail_${(action.payload)}');
+        return FishReduxPageRoute.routes.buildPage(
+            'flutter_viewer_detail_video_page',
+            {
+              'hero_animation_tag':'HeroAnimation${ctx.state.type}_Route_Detail_${(action.payload)}'
+            });
       }));
 }
 

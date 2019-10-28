@@ -1,10 +1,7 @@
-import 'dart:async';
-
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_viewer/commom/tabbar_config_model.dart';
 import 'package:flutter_viewer/commom/tabbar_configer.dart';
-import 'package:flutter_viewer/models/travel_model.dart';
 
 class HomeState implements Cloneable<HomeState> {
 

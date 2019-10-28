@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_viewer/commom/scale_screen.dart';
 import 'package:flutter_viewer/widgets/loading_container.dart';
-import 'package:flutter_viewer/widgets/waterfall_item.dart';
+import 'item/waterfall_item.dart';
 
 import 'action.dart';
 import 'state.dart';
@@ -25,7 +25,7 @@ Widget buildView(WaterFallGridViewState state, Dispatch dispatch, ViewService vi
                   itemCount: state.articleModels.length,
                   itemBuilder: (BuildContext context, int index) {
                       return GestureDetector(
-                        onTap: () => dispatch(WaterFallGridViewActionCreator.onTapGridItem()),
+                        onTap: () => dispatch(WaterFallGridViewActionCreator.onTapGridViewItem(index)),
                         child: Hero(
                             tag: 'HeroAnimation${state.type}_Route_Detail_$index',
                             child: WaterFallItem(index: index, model: state.articleModels[index]),

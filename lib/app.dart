@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter_viewer/home/page.dart';
 import 'commom/global.dart';
 import 'commom/page_route.dart';
 

@@ -39,8 +39,4 @@ class WaterFallGridViewActionCreator {
   static Action onScrollToTop() {
     return const Action(WaterFallGridViewAction.scrollToTop);
   }
-
-  static Action onTapGridItem() {
-    return const Action(WaterFallGridViewAction.tapGridViewItem);
-  }
 }
