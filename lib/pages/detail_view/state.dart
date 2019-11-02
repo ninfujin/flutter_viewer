@@ -1,3 +1,4 @@
+import 'package:chewie/chewie.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_viewer/pages/detail_view/video_comment/state.dart';
 import 'package:flutter_viewer/pages/detail_view/video_info/state.dart';
@@ -7,12 +8,20 @@ class DetailViewState implements Cloneable<DetailViewState> {
 
   Object heroTag;
   double appBarAlpha;
+  VideoPlayState videoPlayState;
+  VideoInfoState videoInfoState;
+  VideoCommentState videoCommentState;
+
+  ChewieController chewieController;
+  Future inititalizeVideoPlayerFuture;
 
   @override
   DetailViewState clone() {
     return DetailViewState()
     ..heroTag = heroTag
-    ..appBarAlpha = appBarAlpha;
+    ..appBarAlpha = appBarAlpha
+    ..chewieController = chewieController
+    ..inititalizeVideoPlayerFuture = inititalizeVideoPlayerFuture;
   }
 }
 
@@ -26,14 +35,16 @@ class VideoPlayConnector
     extends ConnOp<DetailViewState, VideoPlayState> {
   @override
   VideoPlayState get(DetailViewState state) {
-    // TODO: implement get
-//    return state.leftState;
+    VideoPlayState videoPlayState = VideoPlayState();
+    videoPlayState.chewieController = state.chewieController;
+    videoPlayState.inititalizeVideoPlayerFuture = state.inititalizeVideoPlayerFuture;
+    return videoPlayState;
   }
 
   @override
   void set(DetailViewState state, VideoPlayState subState) {
-    // TODO: implement set
-//    state.leftState = subState;
+    state.chewieController = subState.chewieController;
+    state.inititalizeVideoPlayerFuture = subState.inititalizeVideoPlayerFuture;
   }
 }
 
