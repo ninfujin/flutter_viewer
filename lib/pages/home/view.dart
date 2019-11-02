@@ -8,16 +8,18 @@ import 'package:flutter_viewer/widgets/keep_alive_wraper.dart';
 import 'state.dart';
 
 Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
-  initialScreenUtil( viewService.context, w: 1080, h: 2248);
   return Scaffold(
     appBar: _appBar(state, dispatch),
     body: TabBarView(
       controller: state.controller,
       children: state.tabBarModels.map((model) {
         return KeepAliverWraper(
-          child: FishReduxPageRoute.routes.buildPage(
-              'flutter_viewer_waterfall_grid_view',
-              {'type': state.tabBarModels.indexOf(model)}
+          child: Container(
+            color: Colors.white30,
+            child: FishReduxPageRoute.routes.buildPage(
+                'flutter_viewer_waterfall_grid_view',
+                {'type': state.tabBarModels.indexOf(model)}
+            ),
           )
         );
       }).toList(),
@@ -46,7 +48,7 @@ _appBar(HomeState state, Dispatch dispatch) {
       actions: <Widget>[
         GestureDetector(
             child: Icon(Icons.camera_alt, color: UNSELECTED_LABEL_COLOR)),
-        SizedBox(width: scaleW(45.0))
+        SizedBox(width: 20.0)
       ]
   );
 }

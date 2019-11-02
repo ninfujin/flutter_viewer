@@ -8,13 +8,13 @@ import 'state.dart';
 
 Effect<DetailViewState> buildEffect() {
   return combineEffects(<Object, Effect<DetailViewState>>{
-    Lifecycle.initState: _initState,
+    Lifecycle.didChangeDependencies: _didChangeDependencies,
     Lifecycle.dispose: _dispose,
     DetailViewAction.pop: _onPop,
   });
 }
 
-void _initState(Action action, Context<DetailViewState> ctx) {
+void _didChangeDependencies(Action action, Context<DetailViewState> ctx) {
   _setupVideoConfiguration(ctx);
 }
 
@@ -35,7 +35,7 @@ void _setupVideoConfiguration(Context<DetailViewState> ctx) {
   videoPlayerControllerontroller.setLooping(true);
   ChewieController chewieController = ChewieController(
     videoPlayerController: videoPlayerControllerontroller,
-    aspectRatio: kScreenWidth / (0.85 * kScreenHeight),
+    aspectRatio: kScreenWidth(ctx.context) / (0.85 * kScreenHeight(ctx.context)),
     autoPlay: !true,
     looping: true,
     showControls: true,

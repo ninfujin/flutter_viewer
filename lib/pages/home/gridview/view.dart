@@ -33,7 +33,6 @@ Widget buildView(WaterFallGridViewState state, Dispatch dispatch, ViewService vi
                       );
                   },
                   staggeredTileBuilder: (int index) => StaggeredTile.fit(1),
-                  mainAxisSpacing: scaleW(5),
-                  crossAxisSpacing: scaleH(10)
+                  crossAxisSpacing: 2
   ))));
 }

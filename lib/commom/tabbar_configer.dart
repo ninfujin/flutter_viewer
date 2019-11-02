@@ -3,8 +3,8 @@ import 'tabbar_config_model.dart';
 
  const Color UNSELECTED_LABEL_COLOR = Colors.black54;
  const Color LABEL_COLOR = Colors.black;
- const TextStyle UNSELECTED_LABEL_STYLE = TextStyle(fontSize: 17.0);
- const TextStyle LABEL_STYLE = TextStyle(fontSize: 17.0);
+ const TextStyle UNSELECTED_LABEL_STYLE = TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold);
+ const TextStyle LABEL_STYLE = TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold);
  const EdgeInsets INDICATOR_PADDING = EdgeInsets.symmetric(horizontal: 37.5,vertical: 4.0);
  const Color INDICATOR_COLOR = Colors.orange;
 

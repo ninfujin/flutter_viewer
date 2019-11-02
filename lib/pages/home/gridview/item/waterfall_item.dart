@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_viewer/commom/global.dart';
-import 'package:flutter_viewer/commom/scale_screen.dart';
 import 'package:flutter_viewer/models/travel_model.dart';
 
 class WaterFallItem extends StatelessWidget {
@@ -23,10 +22,10 @@ class WaterFallItem extends StatelessWidget {
                 ],
               ),
               Positioned(
-                left: scaleW(15.0),
-                bottom: scaleH(30.0),
-                height: scaleW(65.0),
-                width: scaleW(65.0),
+                left: 7.0,
+                bottom: 10.0,
+                height: 30.0,
+                width: 30.0,
                 child: _avator,
               ),
             ]
@@ -42,18 +41,21 @@ class WaterFallItem extends StatelessWidget {
 
   Widget get _diggInfo {
     return SizedBox(
-      height: scaleH(80.0),
+      height: 25.0,
       child: Row(
         mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          Icon(Icons.favorite_border, color: Colors.black12, size: scaleH(60.0)),
-          SizedBox(width: scaleW(20.0)),
-          Text(model.likeCount.toString(), style: TextStyle(
-              fontSize: scaleSp(30.0),
+          Icon(Icons.favorite_border, color: Colors.black12, size: 17.5),
+          SizedBox(width: 10.0),
+          Text(
+              model.likeCount.toString(),
+              style: TextStyle(
+              fontSize: 11.0,
               color: Colors.grey
           )),
-          SizedBox(width: scaleW(15.0))
+          SizedBox(width: 5.0)
         ],
       )
     );

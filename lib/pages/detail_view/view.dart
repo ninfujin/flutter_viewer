@@ -50,7 +50,7 @@ Widget _customAppBar(DetailViewState state) {
   return Opacity(
       opacity: state.appBarAlpha,
       child: Container(
-        height: scaleH(160),
+        height: 60,
         color: Colors.white,
       )
   );

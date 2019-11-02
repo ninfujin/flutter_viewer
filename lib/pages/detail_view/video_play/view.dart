@@ -1,7 +1,6 @@
 import 'package:chewie/chewie.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_viewer/commom/scale_screen.dart';
 
 import 'state.dart';
 
@@ -41,17 +40,17 @@ Widget _errorTip(VideoPlayState state) {
               '  It seems that video load failed, tap and retry...',
               style: TextStyle(
                   color: Colors.red,
-                  fontSize: scaleSp(45.0)
+                  fontSize: 25.0
               ),
             )
           ],
         ),
-        SizedBox(height: scaleH(60.0)),
+        SizedBox(height: 30.0),
         GestureDetector(
           onTap: () => state.chewieController.play(),
           child: Icon(
             Icons.replay,
-            size: scaleH(105),
+            size: 35,
             color: Colors.blue,
           ),
         )

@@ -10,7 +10,7 @@ Widget buildView(VideoCommentState state, Dispatch dispatch, ViewService viewSer
     children: List.generate(10, (idx) {
       return Container(
           color: Colors.green,
-          height: scaleH(250),
+          height: 55,
           child: Center(child: Text('$idx')));
     }),
   );

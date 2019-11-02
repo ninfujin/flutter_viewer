@@ -1,8 +1,12 @@
+import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-double get kScreenWidth => ScreenUtil.screenWidth;
-double get kScreenHeight => ScreenUtil.screenHeight;
+double kScreenWidth(BuildContext context) => MediaQuery.of(context).size.width;
+double kScreenHeight(BuildContext context) => MediaQuery.of(context).size.height;
+
+//double get kScreenWidth => ScreenUtil.screenWidth;
+//double get kScreenHeight => ScreenUtil.screenHeight;
 double get kScreenWidthDp => ScreenUtil.screenWidthDp;
 double get kScreenHeightDp => ScreenUtil.screenHeightDp;
 
